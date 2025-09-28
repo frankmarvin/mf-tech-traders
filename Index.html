@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MF-TecH Trader's</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Link CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <a href="#hero">
+        <img src="logo.png" alt="Logo">
+      </a>
+      <h1>MF-TecH Trader's</h1>
+    </div>
+    <nav>
+      <button onclick="openModal()">Login / Signup</button>
+      <button onclick="toggleTheme()">🌙/☀️</button>
+    </nav>
+  </header>
+
+  <div id="marketTicker"><span id="tickerContent">Loading market data...</span></div>
+
+  <main>
+    <section id="hero">
+      <h2>Welcome to MF-TecH Trader's</h2>
+      <p>Empowering your trading journey with smart tools, insights, and simulations.</p>
+    </section>
+
+    <section id="dashboard">
+      <h2>User Dashboard</h2>
+      <div class="dashboard-card" id="profileCard">
+        <h3>Profile</h3>
+        <p id="welcomeUser"></p>
+        <p>Balance: $<span id="userBalance">1000</span></p>
+        <p>Status: <span id="accountStatus">Unverified ❌</span></p>
+        <button onclick="logout()">Logout</button>
+        <button onclick="resetAccount()">Reset Account</button>
+      </div>
+
+      <div class="dashboard-card">
+        <h3>Save Trade</h3>
+        <input type="text" id="tradeInput" placeholder="Enter trade note">
+        <button onclick="saveTrade()">Save</button>
+        <ul id="tradeList"></ul>
+      </div>
+
+      <div class="dashboard-card">
+        <h3>Demo Trade Simulator</h3>
+        <select id="tradeType">
+          <option value="buy">Buy</option>
+          <option value="sell">Sell</option>
+        </select>
+        <input type="number" id="tradeAmount" placeholder="Amount">
+        <button onclick="simulateTrade()">Simulate</button>
+        <p id="tradeResult"></p>
+      </div>
+
+      <div class="dashboard-card">
+        <h3>Transaction History</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th>Amount ($)</th>
+              <th>Result ($)</th>
+            </tr>
+          </thead>
+          <tbody id="transactionHistory"></tbody>
+        </table>
+      </div>
+
+      <div class="dashboard-card">
+        <h3>Withdraw</h3>
+        <input type="number" id="withdrawAmount" placeholder="Enter amount (KSH)">
+        <button onclick="withdraw()">Withdraw</button>
+        <p id="withdrawMessage"></p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal -->
+  <div id="authModal" class="modal">
+    <video autoplay loop muted playsinline>
+      <source src="finance_bg.mp4" type="video/mp4">
+    </video>
+    <div class="modal-overlay"></div>
+    <div class="modal-content">
+      <h2 id="modalTitle">Login</h2>
+      <input type="text" id="username" placeholder="Username">
+      <input type="password" id="password" placeholder="Password">
+      <button onclick="login()">Login</button>
+      <button onclick="signup()">Signup</button>
+      <button onclick="closeModal()">Close</button>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 MF-TecH Trader's. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Link JS -->
+  <script src="script.js"></script>
+</body>
+</html>
